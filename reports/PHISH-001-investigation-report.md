@@ -67,7 +67,7 @@ For a comparable real-world alert, an analyst should:
 4. Determine whether the recipient clicked the link or submitted credentials.
 5. Search for related messages and affected users.
 6. Escalate confirmed malicious activity according to incident response procedures.
-
+ 
 7. Limitations
 
 - Synthetic email content only.
@@ -81,3 +81,17 @@ For a comparable real-world alert, an analyst should:
 The training email exhibits multiple phishing indicators. The Python prototype successfully identified the configured patterns, and its three automated tests passed.
 
 The case is documented as likely phishing within the synthetic scenario. Further evidence would be required to make a definitive determination in a real investigation.
+
+Automated Testing
+
+The Python email analyser was tested against four automated test cases.
+
+Test| Result
+Clean message returns no indicators| PASS
+Suspicious sender without other indicators| PASS
+Detection of three phishing indicators| PASS
+Case-insensitive indicator matching| PASS
+
+Total: 4 passed, 0 failed.
+
+Scope limitation: These tests validate the analyser against controlled synthetic inputs. They do not establish that every phishing email will be detected or confirm that a real-world email is malicious.
