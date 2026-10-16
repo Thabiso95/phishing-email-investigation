@@ -42,15 +42,18 @@ phishing-email-investigation/
 
 Validation Results
 
-The Python analysis script was executed in Google Colab. Three automated unit tests were executed successfully.
+The Python analysis script was executed in Google Colab against the synthetic email evidence.
+
+Automated test results: 4 passed, 0 failed.
 
 The tests cover:
 
-- Detection of three configured indicators.
+- Detection of three configured phishing indicators.
 - Handling of a clean-message example.
 - Case-insensitive matching for the verification-link rule.
+- Detection of a suspicious sender without other indicators.
 
-These results apply only to the tested synthetic inputs. They do not establish production detection accuracy.
+These results apply only to the tested synthetic inputs. They do not establish production detection accuracy or confirm a real-world phishing incident.
 
 Tools and Technologies
 
