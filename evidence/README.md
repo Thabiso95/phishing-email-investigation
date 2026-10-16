@@ -2,7 +2,7 @@ Investigation Evidence
 
 This directory contains synthetic email samples and supporting evidence used for phishing investigation exercises.
 
-All samples are created for defensive security training. No real credentials or sensitive personal information should be included.
+All samples are created for defensive security training. No real credentials or sensitive personal information is be included.
 
 Evidence Handling
 
