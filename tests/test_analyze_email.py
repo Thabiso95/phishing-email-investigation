@@ -52,5 +52,22 @@ class TestEmailAnalysis(unittest.TestCase):
         )
 
 
+    def test_detects_suspicious_sender_without_other_indicators(self):
+        email = """
+        From: Security Team <security@micros0ft-example.invalid>
+        Subject: Account information
+
+        Please review the account information in the attached notice.
+        """
+
+        findings = analyze_email(email)
+
+        self.assertIn("Possible brand impersonation", findings)
+        self.assertNotIn("Urgency or pressure tactic", findings)
+        self.assertNotIn(
+            "Verification link requires investigation", findings
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
