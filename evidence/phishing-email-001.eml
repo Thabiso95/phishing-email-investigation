@@ -1,0 +1,22 @@
+
+From: Microsoft 365 Security <security-alert@micros0ft-example.invalid>
+To: analyst@example.com
+Date: Thu, 15 Oct 2026 09:15:00 +0200
+Subject: Urgent: Your account will be suspended
+
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+We detected unusual activity on your account.
+
+Your mailbox will be suspended within 24 hours unless you verify
+your account immediately.
+
+Review your account here:
+https://login.micros0ft-example.invalid/verify
+
+If you did not request this action, verify your identity to
+restore access.
+
+This is a synthetic training email. The .invalid domain is
+reserved for invalid example use and is not a real login service.
