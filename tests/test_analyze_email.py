@@ -53,8 +53,7 @@ class TestEmailAnalysis(unittest.TestCase):
 
 
     def test_detects_suspicious_sender_without_other_indicators(self):
-        email = """
-        From: Security Team <security@micros0ft-example.invalid>
+        email = """From: Security Team <security@micros0ft-example.invalid>
         Subject: Account information
 
         Please review the account information in the attached notice.
