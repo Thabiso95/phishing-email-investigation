@@ -1,84 +1,93 @@
-Phishing Email Investigation
+# Phishing Email Investigation
 
-Project Overview
+A cybersecurity portfolio project demonstrating phishing triage, indicator analysis, evidence documentation, MITRE ATT&CK assessment, and automated validation using Python.
 
-This project demonstrates a basic Security Operations Center (SOC) workflow for investigating a suspected phishing email using synthetic evidence, Python-based indicator analysis and automated unit tests.
+## Project Overview
 
-The investigation focuses on identifying suspicious sender-domain patterns, urgency-based social engineering and account-verification links.
+This repository contains two investigations demonstrating defensive Security Operations Center (SOC) workflows.
 
-Objectives
+- **PHISH-001:** Synthetic phishing-email analysis using Python-based indicator detection and automated unit tests.
+- **PHISH-002:** Investigation of a suspicious recruitment email, including evidence documentation, a timeline, indicator analysis, findings, and a provisional MITRE ATT&CK assessment.
 
-- Examine a synthetic phishing email.
-- Identify suspicious indicators.
+The project emphasises evidence-based conclusions, transparent limitations, and avoiding unsupported claims about malicious activity.
+
+## Case Study: PHISH-001
+
+**Classification:** Likely phishing within the synthetic training scenario.
+
+### Objectives
+
+- Examine a synthetic email sample.
+- Identify configured phishing indicators.
 - Implement basic Python detection logic.
-- Validate expected behaviour using automated tests.
-- Document findings, limitations and recommended incident response actions.
+- Validate detection behaviour using automated tests.
+- Document findings and recommended defensive actions.
 
-Case Study: PHISH-001
-
-Classification: Likely phishing within the synthetic training scenario.
-
-The sample contains three configured indicators:
+### Indicators assessed
 
 1. Possible brand impersonation.
 2. Urgency or pressure tactics.
 3. A verification link requiring investigation.
 
-No live phishing infrastructure or account compromise was established.
+### Validation
 
-Repository Structure
+Previously recorded results: **4 tests passed, 0 failures.**
 
+Tests cover configured indicator detection, clean-message handling, case-insensitive matching, and suspicious sender detection.
+
+These results apply only to the tested synthetic inputs. They do not establish production detection accuracy or a real-world compromise.
+
+## Case Study: PHISH-002
+
+**Classification:** High-risk suspicious recruitment email; suspected recruitment fraud or impersonation remains unconfirmed.
+
+### Objectives
+
+- Assess suspicious recruitment claims and requests.
+- Record indicators and supporting evidence.
+- Document a chronological investigation timeline.
+- Evaluate findings and evidential limitations.
+- Assess potentially relevant MITRE ATT&CK techniques.
+- Validate investigation documentation with automated tests.
+
+### Investigation highlights
+
+- **Sender and domain assessment:** Records observed details while distinguishing suspicious context from proof of maliciousness.
+- **Email authentication:** Assesses reported SPF, DKIM, and DMARC results without treating successful authentication as proof of legitimacy.
+- **Financial risk:** Documents a requested third-party compliance fee as a warning sign requiring independent verification.
+- **Evidence handling:** Maintains an evidence register, timeline, indicator register, and findings.
+- **MITRE ATT&CK:** Evaluates potential techniques without presenting unconfirmed activity as established fact.
+- **Defensible conclusion:** Keeps the investigation appropriately qualified rather than declaring fraud or system compromise proven.
+
+### Validation
+
+Previously recorded results: **17 PHISH-002 tests passed, 0 failures.**
+
+The tests validate selected requirements in the incident report, indicator register, and MITRE ATT&CK assessment. They do not independently establish whether the email is fraudulent.
+
+## Repository Structure
+
+```text
 phishing-email-investigation/
+├── analysis/
+│   └── PHISH-002/
+│       ├── findings.md
+│       ├── indicator-register.md
+│       ├── mitre-attack-assessment.md
+│       └── timeline.md
 ├── evidence/
-│   ├── README.md
-│   └── phishing-email-001.eml
+│   ├── PHISH-002/
+│   │   └── evidence-register.md
+│   ├── phishing-email-001.eml
+│   └── README.md
+├── reports/
+│   ├── PHISH-001-investigation-report.md
+│   └── PHISH-002-incident-report.md
 ├── src/
 │   └── analyze_email.py
 ├── tests/
-│   └── test_analyze_email.py
-├── reports/
-│   └── PHISH-001-investigation-report.md
+│   ├── test_analyze_email.py
+│   ├── test_phish002_attack.py
+│   ├── test_phish002_indicators.py
+│   └── test_phish002_report.py
 └── README.md
-
-Validation Results
-
-The Python analysis script was executed in Google Colab against the synthetic email evidence.
-
-Automated test results: 4 passed, 0 failed.
-
-The tests cover:
-
-- Detection of three configured phishing indicators.
-- Handling of a clean-message example.
-- Case-insensitive matching for the verification-link rule.
-- Detection of a suspicious sender without other indicators.
-
-These results apply only to the tested synthetic inputs. They do not establish production detection accuracy or confirm a real-world phishing incident.
-
-Tools and Technologies
-
-- Python
-- Google Colab
-- Git and GitHub
-- Python "unittest"
-- Email and phishing investigation concepts
-
-Limitations
-
-- Synthetic email evidence only.
-- No live email gateway or SIEM integration.
-- No real email authentication headers.
-- No external threat-intelligence checks.
-- Basic string matching may produce false positives and false negatives.
-
-Future Improvements
-
-- Parse real-format email headers from sanitised test samples.
-- Add SPF, DKIM and DMARC result analysis.
-- Improve URL and domain parsing.
-- Expand tests for edge cases and false positives.
-- Integrate the investigation workflow with a SIEM in a suitable lab.
-
-Disclaimer
-
-This repository is for defensive security education and portfolio development. All email samples are synthetic and intended for safe analysis.
