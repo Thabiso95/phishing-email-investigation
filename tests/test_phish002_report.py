@@ -46,11 +46,11 @@ class TestPhish002Documentation(unittest.TestCase):
         self.assertIn("not inherently malicious", findings)
 
     def test_case_does_not_claim_confirmed_fraud(self):
-    all_text = "\n".join(self.documents.values())
+        all_text = "\n".join(self.documents.values())
 
-    self.assertNotIn("confirmed fraud", all_text)
-    self.assertIn("does not conclusively establish", all_text)
-    self.assertIn("suspected recruitment fraud", all_text)
+        self.assertNotIn("confirmed fraud", all_text)
+        self.assertIn("does not conclusively establish", all_text)
+        self.assertIn("suspected recruitment fraud", all_text)
 
 
 if __name__ == "__main__":
